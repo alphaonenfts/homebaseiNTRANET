@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet Portal</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4e0a0a;
+            color: #fff;
+            padding: 4px;
+            text-align: center;
+            width: 100%;
+                    }
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 50px;
+            width: auto;
+                }
+        header:hover{
+          color: #db0b0b;
+          background-color: gray;
+          cursor: grabbing;
+        }
+        nav {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            width: 100px;
+            float: left;
+            height: 100vh;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 10px;
+            padding: 0;
+        }
+        nav ul li {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+
+        .dropdown {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #555;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            transition: visibility 0.3s, opacity 0.3s, transform 0.3s ease-in-out;
+            transform: translateY(-10px);
+        }
+
+        .dropdown li {
+            background: #666;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+
+        nav ul li:hover .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .sidebar-right {
+            float: right;
+            width: 100px;
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            height: 100vh;
+        }
+        .sidebar-right ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar-right ul li {
+            margin-bottom: 20px;
+        }
+        .sidebar-right ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+        }
+        section {
+            padding: 20px;
+            margin-left: 220px;
+            margin-right: 220px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+        }
+        /* Grid container */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        /* Mission & Vision Box */
+        .mission-vision, .announcements {
+            background: linear-gradient(135deg, #fff, #f4f4f4);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mission-vision:hover, .announcements:hover {
+            transform: scale(1.02);
+        }
+        .mission-vision h2, .announcements h2 {
+            text-align: center;
+            color: #4e0a0a;
+            font-size: 24px;
+        }
+        .mission-vision p, .announcements p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 10px;
+            }
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            /* nav, .sidebar-right {
+                position: relative;
+                width: 100%;
+                height: auto;
+                text-align: center;
+            } */
+        }
+        /* h2 {
+            text-align: center;
+        } */
+    </style>
+</head>
+<body>
+    <header>
+      <img src="/images/homebase2logo.jpg" alt="Homebase Mortgage Bank Logo">
+        <h1>WELCOME TO HOMEBASE INTRANET PORTAL</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#forms">Form Download</a>
+                <ul class="dropdown">
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">Control Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">IT Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">Marketing Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">OPerations Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">Human Resources Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">Risk Management Department</a></li>
+                    <li><a href="/Form/dd12-13_0.pdf" target="_blank">Accounting Department</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="Document/Document.html">Document Download</a>
+                 
+                <ul class="dropdown">
+                    <li>
+                        <a href="Document/Document1.docx">Revalidation form</a>
+                    </li>
+                    <li>
+                        <a href="Form/dd12-13_0.pdf">Application form</a>
+                    </li>
+                    <li>
+                        <a href="Document/tobi.docx">Utilities form</a>
+                    </li>
+                    <li>
+                        <a href="Document/Document1.docx">Migration form</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="./Library/Library.html">Library</a></li>
+        </ul>
+    </nav>
+
+    <div class="sidebar-right">
+        <ul>
+            <li><a href="http://fintrak-app/fintrakbanking/login.aspx?ReturnUrl=%2ffintrakbanking%2fAdministration%2fDefault2.aspx">FINTRAK</a></li>
+            <li><a href="https://accounts.zoho.com/signin?servicename=VirtualOffice&signupurl=https://www.zoho.com/mail/zohomail-pricing.html&serviceurl=https://mail.zoho.com">Email</a></li>
+            <li><a href="Department.html">Departments</a></li>
+            <li><a href="ComplainPortal.html ">Complain Portal</a></li>
+            <li><a href="#whistle_blower">Whistle Blower</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </div>
+    <section>
+        <div class="content-wrapper">
+            <div class="mission-vision">
+                <h2>Our Mission & Vision</h2>
+                <p><strong>Mission:</strong> At <b>Homebase Mortgage Bank</b>, our mission is to provide accessible, innovative, and customer-focused mortgage solutions that empower individuals and businesses to achieve their homeownership dreams. We are committed to financial excellence, fostering trust, and ensuring long-term prosperity for our clients.</p>
+                <p><strong>Vision:</strong> Our vision is to be the leading mortgage institution, setting the standard for integrity, innovation, and customer satisfaction. We aspire to make homeownership a reality for every Nigerian through tailored financial solutions and cutting-edge digital banking services.</p>
+            </div>
+            <!-- Announcements Section -->
+            <div class="announcements">
+                <h2>Latest Announcements</h2>
+                <p>📢 <strong>New Policy Update:</strong> Starting next quarter, all loan applications will be processed digitally to improve efficiency.</p>
+                <p>🏦 <strong>Branch Expansion:</strong> We are excited to announce the opening of two new branches in Lagos and Abuja.</p>
+                <p>📅 <strong>Upcoming Training:</strong> A mandatory employee training on customer service excellence will be held on March 20th, 2025.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+      <marquee behavior="scroll" direction="right">
+        <p>&copy; 2024 HOMEBASE ICT. All rights reserved.</p>
+      </marquee>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #4e0a0a;
+            color: #fff;
+            padding: 4px;
+            text-align: center;
+            width: 100%;
+                    }
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 50px;
+            width: auto;
+                }
+        header:hover{
+          color: #db0b0b;
+          background-color: gray;
+          cursor: grabbing;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+          footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/images/homebase2logo.jpg" alt="Homebase Mortgage Bank Logo">
+          <h1>WELCOME TO HOMEBASE INTRANET PORTAL</h1>
+    </header>
+    <div class="container">
+        <h2>Complaint Portal</h2>
+        <form id="complaintForm" >
+            <input type="text" id="name" placeholder="Your Name" required >
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="complaint" placeholder="Describe your complaint" required ></textarea>
+            <button type="submit">Submit Complaint</button>
+        </form>
+        <p id="responseMessage" style="color: green;"></p>
+    </div>
+    <footer>
+        <marquee behavior="scroll" direction="right">
+          <p>&copy; 2024 HOMEBASE ICT. All rights reserved.</p>
+        </marquee>
+          
+    </footer>
+
+
+    <!-- <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let complaint = document.getElementById('complaint').value;
+
+            if (name && email && complaint) {
+                document.getElementById('responseMessage').innerText = "Complaint submitted successfully!";
+                document.getElementById('complaintForm').reset();
+            } else {
+                alert("Please fill all fields!");
+            }
+        });
+    </script> -->
+    <script>
+        const API_BASE_URL = "https://dbb.onrender.com";
+        document.getElementById("complaintForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                complaint: document.getElementById('complaint').value,
+            }
+
+            try {
+                const res = await fetch (`${API_BASE_URL}/submit_complaint`, {
+                    method : "POST",
+                    headers: {"Content-type": "application/json"},
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await res.json();
+                document.getElementById("responseMessage").innerHTML = result.message
+            }catch(error){
+                document.getElementById("responseMessage").innerHTML = "Error Submitting Complaint"
+            }
+        })
+    </script>
+</body>
+</html>
